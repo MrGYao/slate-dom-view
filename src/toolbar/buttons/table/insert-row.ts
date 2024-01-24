@@ -8,6 +8,11 @@ import { DomEditor } from '../../../editor/dom-editor'
 import $, { Dom7Array } from '../../../utils/dom'
 import { IToolButton, getEditorInstanceByButton } from '../index'
 
+interface Row {
+    type: string;
+    children: Array<any>
+}
+
 class InsertRow implements IToolButton {
     key = 'insert-row'
     $elem: Dom7Array
@@ -38,7 +43,7 @@ class InsertRow implements IToolButton {
         if (cellsLength === 0) return
 
         // 拼接新插入的 tr
-        const newRow = { type: 'table-row', children: [] }
+        const newRow: Row = { type: 'table-row', children: [] }
         for (let i = 0; i < cellsLength; i++) {
             newRow.children.push({
                 // @ts-ignore

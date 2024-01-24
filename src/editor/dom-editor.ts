@@ -201,7 +201,7 @@ export const DomEditor = {
             targetEl = (
                 isDOMElement(target) ? target : target.parentElement
             ) as HTMLElement
-        } catch (err) {
+        } catch (err: any) {
             if (
                 !err.message.includes('Permission denied to access property "nodeType"')
             ) {
@@ -400,6 +400,7 @@ export const DomEditor = {
         if (document.caretRangeFromPoint) {
             domRange = document.caretRangeFromPoint(x, y)
         } else {
+            // @ts-ignore
             const position = document.caretPositionFromPoint(x, y)
             if (position) {
                 domRange = document.createRange()

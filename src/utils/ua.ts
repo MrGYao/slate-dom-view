@@ -7,6 +7,7 @@ export const IS_IOS =
     typeof navigator !== 'undefined' &&
     typeof window !== 'undefined' &&
     /iPad|iPhone|iPod/.test(navigator.userAgent) &&
+    // @ts-ignore
     !window.MSStream
 
 export const IS_APPLE =
